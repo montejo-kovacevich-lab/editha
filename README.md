@@ -1,10 +1,8 @@
-# Museum Label Whisperer
+# Label detector and cropper
 
-An app that finds the things you care about inside a set of images, cuts them out,
-and turns any text in them into a table you can work with.
+This app lets you train a model to identify labels (or any other object) in images, and then crops the labels. 
 
-You teach it what to look for by drawing boxes on a handful of images first, so it
-can learn to find anything that looks reasonably consistent — specimen labels, pages
+How it works: you teach what to look for by drawing boxes on a handful of images first, so it can learn to find anything that looks reasonably consistent — specimen labels, pages
 of a book, signs, forms, plant tags.
 
 ---

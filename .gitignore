@@ -1,1 +1,9 @@
 yolov8s.pt
+__pycache__/
+.DS_Store
+.env
+.venv/
+.Rhistory
+data/
+runs/
+results/

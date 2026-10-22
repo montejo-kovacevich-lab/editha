@@ -128,8 +128,7 @@ else:
             "Annotate": done((root / "data" / "02_yolo_dataset" / "data.yaml").is_file()),
             "Train":    done(trained),
             "Predict":  done(has_files(root / "data" / "03_prediction_preview")),
-            "Crop":     done(has_files(root / "data" / "04_cropping_result")),
-            "OCR":      done(has_files(root / "data" / "06_structured_output")),
+            "Crop":     done(has_files(root / "data" / "04_cropping_result"))
         })
 
 
@@ -181,12 +180,4 @@ of a book, signs, forms, plant tags.
 4. **Predict** — see what it finds, so you can check it got it right
 5. **Crop** — cut out everything it found, one image per object
 
-### Reading the text
-Turn each cut-out image into text, then sort that text into columns of your choice —
-these can follow an existing standard (GBIF Darwin Core, for example), or whatever
-suits your own records.
-
-### Checking
-Go through the results alongside the original images, and correct anything that came
-out wrong before you export.
 """)

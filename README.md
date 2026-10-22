@@ -40,7 +40,7 @@ the installer.
 
 **2. Download the app**
 
-Go to https://github.com/biancasarc/museum_label_whisperer, click the green
+Go to https://github.com/montejo-kovacevich-lab/label_detecting_cropping, click the green
 **Code** button, then **Download ZIP**. Unzip it somewhere you'll find again,
 like your Desktop or Documents.
 
@@ -90,26 +90,11 @@ If you need it, download Python from https://www.python.org/downloads/
 ### 2. Clone the repository
 
 ```bash
-git clone https://github.com/biancasarc/museum_label_whisperer
-cd museum_label_whisperer
+git clone https://https://github.com/montejo-kovacevich-lab/label_detecting_cropping
+cd label_detecting_cropping
 ```
 
-### 3. Create a Python environment (recommended)
-
-It is strongly recommended to install the dependencies in a virtual environment.
-
-**macOS/Linux**
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-```
-
-**Windows**
-
-```bash
-python -m venv .venv
-.venv\Scripts\activate
+### 3. Install requirements
 ```
 
 Install the required packages:
@@ -120,7 +105,7 @@ python -m pip install -r requirements.txt
 
 ### 4. Run the app
 
-Make sure you are inside the `museum_label_whisperer` directory, then:
+Make sure you are inside the `label_detecting_cropping` directory, then:
 
 ```bash
 python -m streamlit run app.py
@@ -238,35 +223,6 @@ Cuts out one image per object found. You can set:
 
 Cut-outs are saved to `data/04_cropping_result`.
 
-## Step 6 — Read the text
-
-Needs an **OpenAI API key**, pasted into the settings box at the top. It is used
-only while the app is open and is never saved to your computer. You will need to
-paste it again each time you restart.
-
-This step has two parts, which you can run separately:
-
-**Part 1 — Read the text.** Sends each cut-out image off to be read and saves the
-result to `data/05_ocr_results`. You can edit the reading instructions and save
-them; they are kept in `data/ocr_prompt.txt`.
-
-**Part 2 — Sort into columns.** Groups the cut-outs back together by the image they
-came from, then uses five editable prompts to sort the text into columns of your
-choice — these can follow an existing standard (GBIF Darwin Core, for example), or
-whatever suits your own records. You can add your own prompts too. Results go to
-`data/06_structured_output`.
-
-Both parts skip anything already done, so you can stop and resume.
-
-## Step 7 — Check the results
-
-Go through the results one image at a time, with the original image beside them, and
-correct anything that came out wrong. Use ↺ next to any field to put the original
-text back.
-
-Reads `data/06_structured_output/structured_dwc_metadata.csv` and writes your
-corrections to `data/07_quality_checking/corrected_metadata.csv`, leaving the
-original untouched.
 
 ---
 
@@ -281,11 +237,6 @@ projects/<your project>/
   data/02_yolo_dataset         the training set built at Step 2
   data/03_prediction_preview   previews from Step 4
   data/04_cropping_result      cut-out images from Step 5
-  data/05_ocr_results          text read at Step 6, part 1
-  data/06_structured_output    columns sorted at Step 6, part 2
-  data/07_quality_checking     your corrections from Step 7
-  runs/detect/<name>/weights/  the trained model from Step 3
-  runs/train_log.txt           training log
 ```
 
 ---
@@ -300,7 +251,3 @@ projects/<your project>/
 - **Starting fresh.** To begin again with a different set of images, create a new
   project on the front page. The old project's results stay where they are. To
   redo a project in place instead, delete its `data/` and `runs/` folders.
-
-- **Rotated images.** Images carrying an EXIF rotation tag are handled consistently
-  at every step, so boxes always line up with what you see on screen. Nothing is
-  required from you.

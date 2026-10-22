@@ -1,8 +1,7 @@
 yolov8s.pt
 __pycache__/
 .DS_Store/
-.env
-.venv/
+.label_detect
 .Rhistory
 data/
 runs/

@@ -42,7 +42,7 @@ image_dir = browse_input(
 
 
 n_images = st.number_input(
-    "How many images to bring in (the app keeps 20% back to check its own work)",
+    "Ammount of images the model will train on",
     min_value=1,
     value=20,
     step=1

@@ -1,6 +1,6 @@
-# Label detector and cropper (Step 0)
+# *editha* label finder and cropper (Step 0)
 
-Part of [Editha](../README.md). This step is optional: you only need it if your images are photos of whole specimens and you want each label cropped to its own image. If you already have images of individual labels, notebook pages or ledger scans, skip to [`museum-label-reader`](../museum-label-reader/).
+Part of [*editha*](../README.md). This step is optional: you only need it if your images are photos of whole specimens and you want each label cropped to its own image. If you already have images of individual labels, notebook pages or ledger scans, skip to [`museum-label-reader`](../museum-label-reader/).
 
 This app lets you train a model to identify labels (or any other object) in images, and then crops the labels. 
 
@@ -24,11 +24,6 @@ Both options install the same app and work identically once running.
 
 ## Option A — Easy install (no coding)
 
-> ⚠️ **Not available yet.** The launcher files described below are still being
-> prepared. For now, please use **Option B**, or ask for help setting it up.
-
-Once ready, this is all it will take:
-
 **1. Install Python (one time only)**
 
 Download Python **3.10 or newer** from https://www.python.org/downloads/ and run
@@ -42,37 +37,47 @@ the installer.
 
 Go to https://github.com/montejo-kovacevich-lab/editha, click the green
 **Code** button, then **Download ZIP**. Unzip it somewhere you'll find again,
-like your Desktop or Documents. The label finder lives in the
-`label-finder-cropper-yolo` folder.
+like your Desktop or Documents, and open the `label-finder-cropper-yolo` folder.
 
 **3. Install it — double-click once**
 
-Open the unzipped folder and double-click:
+Double-click:
 
-- **macOS:** `Install Museum Label Whisperer.command`
-- **Windows:** `Install Museum Label Whisperer.bat`
+- **macOS:** `Install editha label finder.command`
+- **Windows:** `Install editha label finder.bat`
 
-A black window opens and installs everything. This takes several minutes and
-downloads around 2 GB, so stay on a good connection. When it says
-**"Installation complete"**, close the window.
+A black window opens and installs everything into a private `.venv` folder
+inside the app folder (nothing is installed elsewhere on your computer). This
+takes several minutes and downloads around 2 GB, so stay on a good connection.
+When it says **"Installation complete"**, close the window.
 
 You only do this once.
 
 > **macOS:** the first time, macOS may refuse to open the file and say it is
 > from an unidentified developer. **Right-click** the file, choose **Open**,
 > then click **Open** in the dialog. You only need to do this the first time.
+> If it instead says "permission denied", open Terminal, type `chmod +x `
+> (with a trailing space), drag the file onto the Terminal window, and press Enter.
+>
+> **Windows:** if Windows SmartScreen says "Windows protected your PC", click
+> **More info**, then **Run anyway**.
 
 **4. Start the app — double-click any time**
 
 Double-click:
 
-- **macOS:** `Start Museum Label Whisperer.command`
-- **Windows:** `Start Museum Label Whisperer.bat`
+- **macOS:** `Start editha label finder.command`
+- **Windows:** `Start editha label finder.bat`
 
 The app opens in your web browser. A black window stays open in the background —
 **leave it open** while you work; closing it stops the app.
 
 When you're finished, close the browser tab and then close the black window.
+
+(If you start the app before installing, it installs itself first.)
+
+**Updating:** download the ZIP again and copy your `projects` folder into the new
+app folder. Your work is stored in `projects/`.
 
 ---
 
@@ -103,7 +108,16 @@ Install the required packages:
 python -m pip install -r requirements.txt
 ```
 
-### 4. Run the app
+### 4. Download the base model
+
+Training starts from a small pretrained model, `yolov8s.pt`, which has to sit in
+the app folder. Download it once:
+
+```bash
+python -c "from ultralytics import YOLO; YOLO('yolov8s.pt')"
+```
+
+### 5. Run the app
 
 Make sure you are inside the `editha/label-finder-cropper-yolo` directory, then:
 

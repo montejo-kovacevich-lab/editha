@@ -8,7 +8,7 @@ import pandas as pd
 import streamlit as st
 
 st.set_page_config(
-    page_title="Museum Label Whisperer",
+    page_title="editha label finder",
     layout="wide"
 )
 
@@ -162,10 +162,16 @@ if projects:
 # ---------------------------------------------------------------------------
 
 st.divider()
-st.title("Museum Label Whisperer")
+st.markdown(
+    "<h1 style=\"font-family: 'Snell Roundhand', 'Brush Script MT', 'Segoe Script', "
+    "'Apple Chancery', cursive; font-weight: 400; font-size: 3.2rem; margin-bottom: 0;\">"
+    "editha</h1>"
+    "<p style='margin-top: 0; opacity: 0.7;'>label finder and cropper</p>",
+    unsafe_allow_html=True,
+)
 st.markdown("""
-This app finds the things you care about inside a set of images, cuts them out,
-and turns any text in them into a table you can work with.
+This app finds the things you care about inside a set of images and cuts them out,
+one image per object, ready for the next step.
 
 You teach it what to look for by drawing boxes on a handful of images first, so it
 can learn to find anything that looks reasonably consistent — specimen labels, pages

@@ -1,8 +1,8 @@
-# Editha
+# *editha*
 
 A no-code pipeline for turning images of text into structured data, using YOLO for finding text regions and vision-LLM API calls for transcription and structuring.
 
-Editha works on any text: labels, ledgers, notebooks, forms, signs. It will have modules specialised for **museum specimen labels** and **biodiversity archives**, plus one more **open-ended** module for any other kind of text.
+*editha* works on any text: labels, ledgers, notebooks, forms, signs. It will have modules specialised for **museum specimen labels** and **biodiversity archives**, plus one more **open-ended** module for any other kind of text.
 
 It is aimed at people who can't code. Nothing is uploaded anywhere except directly from your browser to OpenAI or Anthropic.
 
@@ -10,7 +10,7 @@ It is aimed at people who can't code. Nothing is uploaded anywhere except direct
 
 | Folder | Step | What it is | Needs |
 |---|---|---|---|
-| [`label-finder-cropper-yolo/`](label-finder-cropper-yolo/) | 0 (optional) | Streamlit app: a YOLOv8 model finds labels (or any object) in an image and crops each to its own PNG. If the pretrained model misses things on a new collection, train a free model with a small number of annotated images. | Python |
+| [`label-finder-cropper-yolo/`](label-finder-cropper-yolo/) | 0 (optional) | Streamlit app: a YOLOv8 model finds labels (or any object) in an image and crops each to its own PNG. If the pretrained model misses things on a new collection, train a free model with a small number of annotated images. | Python 3.10+ (one-click installer for macOS and Windows) |
 | [`museum-label-reader/`](museum-label-reader/) | 1–3 | The museum label module: three single-file HTML apps that run entirely in the browser. | A browser and an OpenAI or Anthropic API key |
 
 Modules for biodiversity archives and a more open-ended module are planned.

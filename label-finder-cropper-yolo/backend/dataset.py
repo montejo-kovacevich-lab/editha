@@ -1,4 +1,4 @@
-"""Dataset helpers for Museum Label Whisperer.
+"""Dataset helpers for the editha label finder.
 
 This module replaces the CVAT-based ``backend/cvat_manager.py``.  It holds:
 

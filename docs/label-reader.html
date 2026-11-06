@@ -33,6 +33,7 @@
     <li><a href="#s1">Step 1 · Type up</a></li>
     <li><a href="#s2">Step 2 · Sort</a></li>
     <li><a href="#s3">Step 3 · Check</a></li>
+    <li><a href="#gbif">Getting data into GBIF</a></li>
     <li><a href="#help">If something goes wrong</a></li>
   </ol>
 </aside>
@@ -135,7 +136,7 @@
 </ol>
 
 <h2 id="s2">Step 2 · Sort the text into columns <span class="j">(data structuring)</span></h2>
-<p class="prose">Page: <span class="f">2-data-structuring-V.3.0.html</span>. Input: the spreadsheet from step 1. Output: a spreadsheet with one column per fact you chose, plus a <span class="f">Tags</span> column listing which facts each label contained.</p>
+<p class="prose">Page: <span class="f">2-data-structuring-V.3.0.html</span>. Input: the spreadsheet from step 1. Output: a spreadsheet with one column per fact you chose, plus a <span class="f">Tags</span> column listing which facts each label contained. The columns use standard Darwin Core names, so the result is <a href="#gbif">ready for GBIF</a>.</p>
 
 <ol class="steps">
   <li>
@@ -255,6 +256,17 @@
 <div class="callout prose">
   <strong class="t">Getting an error rate you can report</strong>
   <p>Checking every label is rarely practical. Choose a <strong>random sample</strong> of labels in step 3 and check those. The manual checks summary then tells you how often the first reading was right, for that sample.</p>
+</div>
+
+<h2 id="gbif">Getting data into GBIF <span class="j">(Global Biodiversity Information Facility)</span></h2>
+<p class="prose">The columns this tool produces are named with Darwin Core terms, such as <span class="f">eventDate</span>, <span class="f">locality</span> and <span class="f">recordedBy</span>. That is the standard GBIF uses for specimen records, so you do not have to rename anything. Before you upload, two things are usually left for you to do:</p>
+<ol class="prose">
+  <li><strong>Add the fields that are not on the label.</strong> GBIF requires a few things that labels rarely carry, such as a unique identifier for each record <span class="j">(occurrenceID)</span> and the type of record <span class="j">(basisOfRecord)</span>. Add them as new columns in a spreadsheet program, because the AI can only read what is printed on the label. Check <a href="https://www.gbif.org/publishing-data" target="_blank" rel="noopener noreferrer">GBIF's current requirements</a> for the full list.</li>
+  <li><strong>Leave out the helper columns.</strong> The files include extra columns used for checking: <span class="f">Tags</span>, <span class="f">.parse1</span>, <span class="f">.parse2</span> and <span class="f">.source</span>. They are not Darwin Core, so remove them from the file you publish.</li>
+</ol>
+<div class="callout prose">
+  <strong class="t">editha does not upload to GBIF for you</strong>
+  <p>When the spreadsheet is ready, you publish it yourself, for example through your institution's data publisher or a GBIF publishing tool.</p>
 </div>
 
 <h2 id="help">If something goes wrong</h2>

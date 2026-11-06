@@ -35,9 +35,13 @@ the installer.
 
 **2. Download the app**
 
-Go to https://github.com/montejo-kovacevich-lab/editha, click the green
-**Code** button, then **Download ZIP**. Unzip it somewhere you'll find again,
-like your Desktop or Documents, and open the `label-finder-cropper-yolo` folder.
+[**Download the app (ZIP)**](https://github.com/montejo-kovacevich-lab/editha/archive/refs/heads/main.zip)
+
+Unzip it somewhere you'll find again, like your Desktop or Documents, and open
+the `label-finder-cropper-yolo` folder.
+
+(Or go to https://github.com/montejo-kovacevich-lab/editha, click the green
+**Code** button, then **Download ZIP**.)
 
 **3. Install it — double-click once**
 
@@ -53,10 +57,24 @@ When it says **"Installation complete"**, close the window.
 
 You only do this once.
 
-> **macOS:** the first time, macOS may refuse to open the file and say it is
-> from an unidentified developer. **Right-click** the file, choose **Open**,
-> then click **Open** in the dialog. You only need to do this the first time.
-> If it instead says "permission denied", open Terminal, type `chmod +x `
+> **macOS security warning (expected):** the first time you double-click a
+> `.command` file, macOS blocks it with a message like *"Apple could not verify
+> ... is free of malware"* or *"cannot be opened because it is from an
+> unidentified developer"*. The file is not signed with an Apple developer
+> certificate, which is why this appears. To allow it:
+>
+> 1. Double-click the file once, and click **Done** (or **OK**) on the warning.
+> 2. Open **System Settings** (called **System Preferences** on older Macs) →
+>    **Privacy & Security**.
+> 3. Scroll down to the **Security** section. You will see a message that the
+>    file "was blocked". Click **Open Anyway** and enter your password.
+> 4. Double-click the file again and click **Open** in the dialog.
+>
+> You do this once for each of the two `.command` files (install and start).
+> On older macOS versions, **right-click** the file, choose **Open**, then click
+> **Open** in the dialog instead.
+>
+> If it says "permission denied" instead, open Terminal, type `chmod +x `
 > (with a trailing space), drag the file onto the Terminal window, and press Enter.
 >
 > **Windows:** if Windows SmartScreen says "Windows protected your PC", click

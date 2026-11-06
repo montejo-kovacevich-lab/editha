@@ -1,7 +1,7 @@
 yolov8s.pt
 __pycache__/
 projects/
-.DS_Store/
+.DS_Store
 .label_detect
 .Rhistory
 data/

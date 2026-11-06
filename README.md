@@ -8,7 +8,7 @@ It is aimed at people who can't code. Nothing is uploaded anywhere except direct
 
 ## Guides
 
-Plain-language guides to what *editha* does and how to run each part are in [`docs/`](docs/index.html): an overview, a [label finder guide](docs/label-finder.html) and a [label reader guide](docs/label-reader.html). They are static web pages, so you can open `docs/index.html` in a browser or publish the `docs` folder with GitHub Pages.
+**Start here: [the *editha* guides](https://montejo-kovacevich-lab.github.io/editha/)**. Plain-language instructions for what *editha* does and how to run each part: an [overview](https://montejo-kovacevich-lab.github.io/editha/), a [label finder guide](https://montejo-kovacevich-lab.github.io/editha/label-finder.html) and a [label reader guide](https://montejo-kovacevich-lab.github.io/editha/label-reader.html).
 
 ## Repository layout
 

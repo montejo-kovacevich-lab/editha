@@ -1,6 +1,6 @@
 # *editha* label finder and cropper (Step 0)
 
-Part of [*editha*](../README.md). This step is optional: you only need it if your images are photos of whole specimens and you want each label cropped to its own image. If you already have images of individual labels, notebook pages or ledger scans, skip to [`museum-label-reader`](../museum-label-reader/).
+Part of [*editha*](../README.md). Step-by-step instructions: [label finder guide](https://montejo-kovacevich-lab.github.io/editha/label-finder.html). This step is optional: you only need it if your images are photos of whole specimens and you want each label cropped to its own image. If you already have images of individual labels, notebook pages or ledger scans, skip to [`museum-label-reader`](../museum-label-reader/).
 
 This app lets you train a model to identify labels (or any other object) in images, and then crops the labels. 
 

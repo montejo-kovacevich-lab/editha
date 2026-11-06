@@ -1,6 +1,6 @@
 # Museum label reader (Steps 1–3)
 
-The museum specimen label module of [*editha*](../README.md).
+The museum specimen label module of [*editha*](../README.md). Step-by-step instructions: [label reader guide](https://montejo-kovacevich-lab.github.io/editha/label-reader.html).
 
 Three standalone single-file HTML apps. Open a file in your browser, drop in images or CSVs, paste an API key. All API calls go directly from the page to OpenAI or Anthropic; nothing is uploaded anywhere else. Results, prompts and settings are kept in the browser (localStorage) until you click **Start over**.
 

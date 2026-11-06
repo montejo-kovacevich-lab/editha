@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>editha label finder guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Pinyon+Script&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="site-head">
+  <a class="wordmark" href="index.html">editha</a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="index.html">Overview</a>
+    <a href="label-finder.html" aria-current="page">Label finder</a>
+    <a href="label-reader.html">Label reader</a>
+    <a href="https://github.com/montejo-kovacevich-lab/editha">GitHub</a>
+  </nav>
+</header>
+
+<div class="guide">
+<aside class="toc" aria-label="On this page">
+  <p>On this page</p>
+  <ol>
+    <li><a href="#what">What it does</a></li>
+    <li><a href="#need">What you need</a></li>
+    <li><a href="#install">Install</a></li>
+    <li><a href="#use">Use it</a></li>
+    <li><a href="#files">Where files go</a></li>
+    <li><a href="#help">If something goes wrong</a></li>
+  </ol>
+</aside>
+
+<main class="guide-body">
+<p class="eyebrow">Step 0 · optional</p>
+<h1>Label finder <span class="j">(YOLO label detection and cropping)</span></h1>
+<p class="lede">Finds labels in a photo and saves each one as its own picture. It can find anything that looks reasonably consistent, such as pages of a book, signs, forms or plant tags.</p>
+
+<h2 id="what">What it does</h2>
+<p class="prose">You show the tool what to look for by drawing boxes around the labels on a handful of photos. It learns from those examples <span class="j">(annotation, then training a YOLO model)</span> and then finds the labels in all your other photos <span class="j">(prediction)</span> and cuts them out <span class="j">(cropping)</span>. Each cut-out is saved as <span class="f">&lt;specimen&gt;_label_01.png</span>, <span class="f">&lt;specimen&gt;_label_02.png</span> and so on.</p>
+<div class="callout prose">
+  <strong class="t">You may not need this tool</strong>
+  <p>If you already have one picture per label, or you are working from notebook pages or ledger scans, skip it and go to the <a href="label-reader.html">label reader</a>.</p>
+</div>
+<p class="prose">It is free to use. It runs on your computer and your pictures are never sent anywhere. The tool only copies your pictures. Your originals are never changed.</p>
+
+<h2 id="need">What you need</h2>
+<ul class="prose">
+  <li>A Mac or a Windows computer.</li>
+  <li>Python 3.10 or newer <span class="j">(the programming language the tool is written in)</span>. You install it once, like any other program.</li>
+  <li>About 2 GB of free space and a good internet connection for the first install.</li>
+  <li>A folder of photos. Around 20 to 50 is a reasonable start for teaching it.</li>
+</ul>
+
+<h2 id="install">Install, once</h2>
+<ol class="steps">
+  <li>
+    <h3>Install Python</h3>
+    <p>Download it from <a href="https://www.python.org/downloads/">python.org/downloads</a> and run the installer.</p>
+    <ul>
+      <li><strong>Windows:</strong> on the first screen of the installer, tick <em>Add Python to PATH</em>. This matters.</li>
+      <li><strong>Mac:</strong> click through the installer.</li>
+    </ul>
+  </li>
+  <li>
+    <h3>Download editha</h3>
+    <p><a href="https://github.com/montejo-kovacevich-lab/editha/archive/refs/heads/main.zip">Download the ZIP file</a>. Unzip it somewhere you will find again, like your Desktop or Documents. Open the folder <span class="f">label-finder-cropper-yolo</span>.</p>
+  </li>
+  <li>
+    <h3>Double-click the installer</h3>
+    <p><strong>Mac:</strong> <span class="f">Install editha label finder.command</span><br><strong>Windows:</strong> <span class="f">Install editha label finder.bat</span></p>
+    <p>A black window opens and sets everything up inside the app folder. It downloads about 2 GB and takes several minutes. When it says <em>Installation complete</em>, close the window.</p>
+  </li>
+</ol>
+
+<div class="callout warn">
+  <strong class="t">Your Mac may block the file the first time</strong>
+  <p>You will probably see a message such as <em>Apple could not verify…</em>. This is expected, because the file is not signed with an Apple developer certificate. To allow it:</p>
+  <ol>
+    <li>Double-click the file once and dismiss the message.</li>
+    <li>Open <strong>System Settings</strong> (called <strong>System Preferences</strong> on older Macs) and go to <strong>Privacy &amp; Security</strong>.</li>
+    <li>Scroll down to <strong>Security</strong>. You will see that the file was blocked. Click <strong>Open Anyway</strong> and enter your password.</li>
+    <li>Double-click the file again and click <strong>Open</strong>.</li>
+  </ol>
+  <p>You do this once for each of the two <span class="f">.command</span> files (install and start).</p>
+</div>
+<div class="callout warn">
+  <strong class="t">Windows may show a blue warning</strong>
+  <p>If it says <em>Windows protected your PC</em>, click <strong>More info</strong>, then <strong>Run anyway</strong>.</p>
+</div>
+
+<h2 id="use">Use it</h2>
+<p class="prose">To start the tool, double-click <span class="f">Start editha label finder.command</span> (Mac) or <span class="f">Start editha label finder.bat</span> (Windows). It opens in your web browser. A black window stays open behind it. <strong>Leave that window open</strong> while you work. Closing it stops the tool. When you are finished, close the browser tab and then the black window.</p>
+
+<div class="dbox prose"><span class="tag">Do this first</span>
+  <h3>Create a project</h3>
+  <p>On the front page, type a name and press <em>Create</em>. Everything you do is filed under that project, so separate projects never overwrite each other. Use underscores instead of spaces.</p>
+  <p>The name shown at the top of each page is the project your work goes into. If you forget to choose one, the work is filed under a folder literally called <span class="f">No project selected</span>.</p>
+</div>
+
+<p class="prose">Then work through the five pages in the left-hand sidebar, <strong>in order</strong>. Let each one finish before you start the next.</p>
+
+<ol class="steps">
+  <li>
+    <h3>Upload images <span class="j">(bring in a training set)</span></h3>
+    <p>Choose the folder with your photos, either by typing its location or with the <em>Browse…</em> button. Pick how many to bring in. That many are chosen at random and copied into the project. About 20 to 50 is a good start. Use more if the labels vary a lot or are complicated. About 20% are held back automatically so the tool can test itself <span class="j">(validation set)</span>.</p>
+  </li>
+  <li>
+    <h3>Annotate images <span class="j">(draw boxes)</span></h3>
+    <p>Draw a box around <strong>every</strong> label you want found, on each photo.</p>
+    <ul>
+      <li><strong>Draw:</strong> click and drag on an empty part of the image.</li>
+      <li><strong>Move or resize:</strong> click a box, then drag it or its corner handles.</li>
+      <li><strong>Delete:</strong> switch <em>Mode</em> (right of the image) from <em>Transform</em> to <em>Del</em>, click the box, then switch back.</li>
+      <li>Click <em>Complete</em> to save each image. The status line turns green.</li>
+      <li>If an image has no labels, click <em>Complete</em> without drawing, or use <em>Nothing to find here</em>. These photos teach the tool what to ignore.</li>
+    </ul>
+    <p>Your boxes are saved as you go, so you can close the tool and come back. When every image is done, click <em>Build training set</em>. Then open <em>Check your boxes</em> and page through a few images. Every red box should sit around a label. If you change any boxes afterwards, click <em>Build training set</em> again, otherwise the next step learns from the old boxes.</p>
+  </li>
+  <li>
+    <h3>Train model <span class="j">(let it learn)</span></h3>
+    <p>Choose the number of training rounds <span class="j">(epochs)</span>. We recommend at least 50. More rounds give better results and take longer. Click <em>Start training</em>.</p>
+    <p>Training can take minutes to hours, depending on your computer and how many images you used. Wait until it reports success. If it fails, a log is written to <span class="f">runs/train_log.txt</span> inside your project folder, and it usually says why.</p>
+  </li>
+  <li>
+    <h3>Predict <span class="j">(preview what it finds)</span></h3>
+    <p>Run the trained model over a folder of photos and look at the previews, with boxes drawn on. Open a few and check they look right before you cut anything out.</p>
+  </li>
+  <li>
+    <h3>Crop images <span class="j">(cut the labels out)</span></h3>
+    <p>Saves one picture per label found. You can set:</p>
+    <ul>
+      <li><strong>How many images to do.</strong> 0 means all of them.</li>
+      <li><strong>Extra space around each cut-out</strong>, in pixels (10 by default).</li>
+      <li><strong>Minimum confidence.</strong> Only labels the tool is at least this sure about are cut out. The default is 0.90. Lower it if too few labels come through.</li>
+    </ul>
+  </li>
+</ol>
+
+<div class="callout prose">
+  <strong class="t">Starting fresh</strong>
+  <p>To try a different set of photos, create a new project on the front page. The old project's results stay where they are. To redo a project in place instead, delete its <span class="f">data</span> and <span class="f">runs</span> folders.</p>
+</div>
+
+<h2 id="files">Where your files go</h2>
+<p class="prose">Everything lives inside the app folder, under <span class="f">projects/&lt;your project&gt;/</span>:</p>
+<div class="tablewrap">
+<table>
+  <thead><tr><th>Folder</th><th>What is in it</th></tr></thead>
+  <tbody>
+    <tr><td><span class="f">data/01_train_val_subset</span></td><td>The photos brought in at step 1</td></tr>
+    <tr><td><span class="f">data/annotations.json</span></td><td>The boxes you drew at step 2</td></tr>
+    <tr><td><span class="f">data/02_yolo_dataset</span></td><td>The training set built at step 2</td></tr>
+    <tr><td><span class="f">data/03_prediction_preview</span></td><td>Previews from step 4</td></tr>
+    <tr><td><strong><span class="f">data/04_cropping_result</span></strong></td><td><strong>The cut-out labels from step 5. This is the folder you take to the label reader.</strong></td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2 id="help">If something goes wrong</h2>
+<details>
+  <summary>The Mac says it cannot open the file</summary>
+  <p>Follow the <em>Open Anyway</em> steps under Install above. If it says <em>permission denied</em> instead, open Terminal, type <span class="f">chmod +x</span> followed by a space, drag the file onto the Terminal window and press Enter.</p>
+</details>
+<details>
+  <summary>The installer says Python was not found</summary>
+  <p>Install Python from <a href="https://www.python.org/downloads/">python.org/downloads</a>, then double-click the installer again. On Windows, make sure you ticked <em>Add Python to PATH</em>. If you did not, run the Python installer again and choose <em>Modify</em>.</p>
+</details>
+<details>
+  <summary>The install stopped or failed</summary>
+  <p>Check your internet connection and double-click the installer again. It carries on where it left off.</p>
+</details>
+<details>
+  <summary>The page will not open, or stopped working</summary>
+  <p>Make sure the black window is still open. Closing it stops the tool. Close the tab, close the black window, and start again with the Start file.</p>
+</details>
+<details>
+  <summary>A step says the one before it is not finished</summary>
+  <p>Go back one page and finish it. Training needs a built training set, and predicting or cropping needs a trained model.</p>
+</details>
+<details>
+  <summary>It misses labels, or finds things that are not labels</summary>
+  <p>Add more example photos at step 1, especially ones where it went wrong. Draw boxes on them, build the training set again and train again. For missed labels you can also lower the minimum confidence when cropping.</p>
+</details>
+<details>
+  <summary>I want to update to a newer version</summary>
+  <p>Download the ZIP again and copy your <span class="f">projects</span> folder into the new app folder. Your work is stored in <span class="f">projects</span>.</p>
+</details>
+
+<div class="next">
+  <a class="btn" href="label-reader.html">Next: read the text with the label reader</a>
+  <a class="btn ghost" href="index.html">Back to overview</a>
+</div>
+</main>
+</div>
+
+<footer class="site-foot">
+  <p>All code and these pages are in the <a href="https://github.com/montejo-kovacevich-lab/editha">editha repository</a>.</p>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>editha guides</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Pinyon+Script&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="site-head">
+  <a class="wordmark" href="index.html">editha</a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="index.html" aria-current="page">Overview</a>
+    <a href="label-finder.html">Label finder</a>
+    <a href="label-reader.html">Label reader</a>
+    <a href="https://github.com/montejo-kovacevich-lab/editha">GitHub</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <h1 class="script">editha</h1>
+  <p class="lede">Turn pictures of handwritten and typed labels into a spreadsheet you can search, then check the result before you rely on it.</p>
+  <p class="prose">editha is made for museum specimen labels and archive notes. You do not need to write any code. It works with one image per label, and it can also cut labels out of a photo of a whole specimen first.</p>
+</section>
+
+<section aria-labelledby="what">
+  <h2 id="what">What it does, step by step</h2>
+  <p class="prose">editha is a short chain of tools. Each one takes the result of the one before. You can stop after any step.</p>
+  <ol class="flow">
+    <li class="optional">
+      <span class="k">STEP 0 · OPTIONAL</span>
+      <h3>Cut out the labels <span class="j">(object detection and cropping)</span></h3>
+      <p>For photos of a whole specimen. The tool finds each label in the photo and saves it as its own picture.</p>
+      <span class="where">Runs on your computer. Free.</span>
+    </li>
+    <li>
+      <span class="k">STEP 1</span>
+      <h3>Type up the text <span class="j">(transcription, also called OCR)</span></h3>
+      <p>An AI model reads each label picture and writes down exactly what it says, with no tidying up.</p>
+      <span class="where">Runs in your browser. Pay per use.</span>
+    </li>
+    <li>
+      <span class="k">STEP 2</span>
+      <h3>Sort the text into columns <span class="j">(data structuring)</span></h3>
+      <p>The text is split into date, place, collector and so on, using the standard column names for biodiversity data <span class="j">(Darwin Core)</span>.</p>
+      <span class="where">Runs in your browser. Pay per use.</span>
+    </li>
+    <li>
+      <span class="k">STEP 3</span>
+      <h3>Check the work <span class="j">(manual checks and re-reads)</span></h3>
+      <p>You compare values with the label picture. The AI reads again as a second opinion, and every disagreement is flagged for you.</p>
+      <span class="where">Runs in your browser. Pay per use.</span>
+    </li>
+  </ol>
+  <p class="prose"><strong>What you end up with:</strong> a corrected spreadsheet <span class="j">(CSV file)</span>, plus a short report with how often the readings agreed, ready for a methods section.</p>
+</section>
+
+<section aria-labelledby="start">
+  <h2 id="start">Where do I start?</h2>
+  <div class="two">
+    <div class="dbox"><span class="tag">I have…</span>
+      <h3>Photos of whole specimens</h3>
+      <p>Each photo shows the specimen with one or more labels pinned beneath it.</p>
+      <p>Start with the <a href="label-finder.html">label finder</a> to cut the labels out, then go on to the <a href="label-reader.html">label reader</a>.</p>
+    </div>
+    <div class="dbox"><span class="tag">I have…</span>
+      <h3>One picture per label, or scans of pages</h3>
+      <p>Individual label images, notebook pages or ledger scans.</p>
+      <p>Skip the label finder. Go straight to the <a href="label-reader.html">label reader</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="tools">
+  <h2 id="tools">The two tools</h2>
+  <p class="prose">They are kept separate on purpose, because they work very differently.</p>
+  <div class="two">
+    <div class="dbox"><span class="tag">Step 0</span>
+      <h3>Label finder</h3>
+      <ul>
+        <li>Finds labels in a photo and crops them <span class="j">(YOLO object detection)</span>.</li>
+        <li>Needs Python, which a double-click installer sets up for you.</li>
+        <li>Free to run. Your pictures never leave your computer.</li>
+        <li>You can teach it a new kind of label with a small number of examples you draw yourself <span class="j">(annotation and training)</span>.</li>
+      </ul>
+      <p><a class="btn" href="label-finder.html">Open the label finder guide</a></p>
+    </div>
+    <div class="dbox"><span class="tag">Steps 1 to 3</span>
+      <h3>Label reader</h3>
+      <ul>
+        <li>Three web pages you open in your browser: type up, sort, check.</li>
+        <li>Nothing to install.</li>
+        <li>Needs an account with OpenAI or Anthropic and a key to use it <span class="j">(API key)</span>. They charge per picture.</li>
+        <li>Every setting, prompt and count can be exported for your methods section.</li>
+      </ul>
+      <p><a class="btn" href="label-reader.html">Open the label reader guide</a></p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="privacy">
+  <h2 id="privacy">Your pictures and your privacy</h2>
+  <ul class="prose">
+    <li><strong>The label finder</strong> works entirely on your computer.</li>
+    <li><strong>The label reader</strong> sends each picture from your browser straight to the AI company you choose (OpenAI or Anthropic). It goes nowhere else. There is no editha server.</li>
+    <li>Results, prompts and settings are kept in your browser until you press <em>Start over</em>. They are not uploaded anywhere. Download your files before clearing anything.</li>
+    <li>Your key can be remembered in your browser. Leave that off on a shared computer.</li>
+  </ul>
+  <div class="callout warn prose">
+    <strong class="t">Check the AI company's data rules</strong>
+    <p>OpenAI and Anthropic each have their own rules for what they keep and for how long. If your images are sensitive, read their current policy for the account type you use before you start.</p>
+  </div>
+</section>
+
+<section aria-labelledby="cost">
+  <h2 id="cost">What does it cost?</h2>
+  <p class="prose">The label finder is free. The label reader is charged by the AI company, per picture, so the cost grows with the number of labels. Ways to keep it low:</p>
+  <ul class="prose">
+    <li><strong>Try 10 labels first.</strong> Every step lets you read just the first or a random few.</li>
+    <li><strong>Use the half-price batch option</strong> <span class="j">(Batch API)</span> in step 1 and 2 with OpenAI models. Results come back within 24 hours, and you can close the page meanwhile.</li>
+    <li><strong>Set a spending limit</strong> in your OpenAI or Anthropic account.</li>
+    <li><strong>Check a random sample</strong> in step 3 instead of every label. It is also how you get an error rate you can report.</li>
+  </ul>
+</section>
+
+<section aria-labelledby="gloss">
+  <h2 id="gloss">Words you might meet</h2>
+  <p class="prose">We use everyday words first and put the technical term in brackets. These are the ones that come up most.</p>
+  <dl class="gloss">
+    <dt>AI model</dt><dd>The program that reads the pictures. Two families are supported: GPT from OpenAI and Claude from Anthropic <span class="j">(vision-language models)</span>.</dd>
+    <dt>Key</dt><dd>A long password that lets editha use your AI account and bills it to you <span class="j">(API key)</span>. Keep it private.</dd>
+    <dt>Spreadsheet</dt><dd>A table you can open in Excel or Google Sheets <span class="j">(CSV file)</span>.</dd>
+    <dt>Exact transcription</dt><dd>Writing down what the label says, spelling mistakes and old abbreviations included <span class="j">(diplomatic transcription)</span>.</dd>
+    <dt>Standard columns</dt><dd>Agreed names for biodiversity data, such as <span class="f">eventDate</span> and <span class="f">locality</span> <span class="j">(Darwin Core)</span>.</dd>
+    <dt>Instructions to the AI</dt><dd>The text sent with each picture that tells the model what to do <span class="j">(prompt)</span>.</dd>
+    <dt>First, second and third reading</dt><dd>Step 1 and 2 give the first reading <span class="j">(parse 1)</span>. Step 3 reads the picture again <span class="j">(parse 2)</span> and a third time where the first two agreed <span class="j">(parse 3)</span>.</dd>
+    <dt>Teaching the finder</dt><dd>Drawing boxes on a few pictures so the label finder learns what to look for <span class="j">(annotating, then training a model)</span>.</dd>
+    <dt>Cut out</dt><dd>Save the part of a picture inside a box as its own picture <span class="j">(crop)</span>.</dd>
+  </dl>
+</section>
+
+<section aria-labelledby="next">
+  <h2 id="next">Where editha is going</h2>
+  <p class="prose">Today, editha has a module for <strong>museum specimen labels</strong>. Planned next: a module for <strong>biodiversity archives</strong> such as notebooks and ledgers, and an <strong>open-ended module</strong> for any other kind of text.</p>
+</section>
+</main>
+
+<footer class="site-foot">
+  <p>All code and these pages are in the <a href="https://github.com/montejo-kovacevich-lab/editha">editha repository</a>.</p>
+</footer>
+
+</div>
+</body>
+</html>

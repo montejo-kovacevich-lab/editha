@@ -170,8 +170,8 @@ st.markdown(
     unsafe_allow_html=True,
 )
 st.markdown("""
-This app finds the things you care about inside a set of images, cuts them out,
-and turns any text in them into a table you can work with.
+This app finds the things you care about inside a set of images and cuts them out,
+one image per object, ready for the next step.
 
 You teach it what to look for by drawing boxes on a handful of images first, so it
 can learn to find anything that looks reasonably consistent — specimen labels, pages

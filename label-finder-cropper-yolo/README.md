@@ -160,10 +160,9 @@ The app opens in your browser. Choose a step from the sidebar.
 # What you need before you start
 
 - **A folder of images.** They stay where they are; the app only ever copies them.
-- **An OpenAI API key**, but only for Step 6 (reading the text). Steps 1–5 work
-  without one. Get a key at https://platform.openai.com/api-keys — note that
-  reading text is charged per image by OpenAI, so it costs a small amount of
-  money to run.
+- **Nothing else.** This step needs no API key. Reading the text in the cropped images is done by the apps in
+  [`museum-label-reader`](../museum-label-reader/), which do need an OpenAI or
+  Anthropic API key.
 
 ---
 
@@ -277,8 +276,9 @@ projects/<your project>/
 
 ⚠️ **Please read!**
 
-- Run the steps **in order**, and wait for each one to report success before moving
-  on. Skipping ahead, or starting a step before the last one finished, causes errors.
+- Work through the steps **in order**, and let each one finish before starting the
+  next. Training in particular can take minutes to hours; wait until it reports
+  success.
 
 - **Starting fresh.** To begin again with a different set of images, create a new
   project on the front page. The old project's results stay where they are. To

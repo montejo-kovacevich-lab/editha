@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>editha label reader guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Pinyon+Script&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="site-head">
+  <a class="wordmark" href="index.html">editha</a>
+  <nav class="site-nav" aria-label="Main">
+    <a href="index.html">Overview</a>
+    <a href="label-finder.html">Label finder</a>
+    <a href="label-reader.html" aria-current="page">Label reader</a>
+    <a href="https://github.com/montejo-kovacevich-lab/editha">GitHub</a>
+  </nav>
+</header>
+
+<div class="guide">
+<aside class="toc" aria-label="On this page">
+  <p>On this page</p>
+  <ol>
+    <li><a href="#open">Open the pages</a></li>
+    <li><a href="#key">Get a key</a></li>
+    <li><a href="#common">Things every page has</a></li>
+    <li><a href="#s1">Step 1 · Type up</a></li>
+    <li><a href="#s2">Step 2 · Sort</a></li>
+    <li><a href="#s3">Step 3 · Check</a></li>
+    <li><a href="#help">If something goes wrong</a></li>
+  </ol>
+</aside>
+
+<main class="guide-body">
+<p class="eyebrow">Steps 1 to 3</p>
+<h1>Label reader <span class="j">(transcription, structuring and error checking)</span></h1>
+<p class="lede">Three web pages that read your label pictures, sort the text into columns, and help you check the result.</p>
+<p class="prose">There is nothing to install. You open a file in your browser, drop in your pictures or spreadsheet, and paste in a key for the AI service you want to use. Each page hands its result to the next as a spreadsheet <span class="j">(CSV file)</span>.</p>
+
+<div class="trio">
+  <div><span class="k">STEP 1</span><p><strong>Label pictures</strong><br>to a spreadsheet of text</p></div>
+  <div><span class="k">STEP 2</span><p><strong>Text spreadsheet</strong><br>to one column per fact</p></div>
+  <div><span class="k">STEP 3</span><p><strong>Column spreadsheet</strong><br>to a checked, corrected one</p></div>
+</div>
+
+<h2 id="open">Open the pages</h2>
+<ol class="steps">
+  <li>
+    <h3>Download editha</h3>
+    <p><a href="https://github.com/montejo-kovacevich-lab/editha/archive/refs/heads/main.zip">Download the ZIP file</a> and unzip it. Open the folder <span class="f">museum-label-reader</span>.</p>
+  </li>
+  <li>
+    <h3>Double-click a page</h3>
+    <p>It opens in your web browser.</p>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Step</th><th>File</th><th>Page title</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><span class="f">1-transcribe-ocr-V.3.0.html</span></td><td>Museum label OCR</td></tr>
+        <tr><td>2</td><td><span class="f">2-data-structuring-V.3.0.html</span></td><td>Museum label structuring</td></tr>
+        <tr><td>3</td><td><span class="f">3-manual-checks-reruns-V.4.0.html</span></td><td>Multi-parsing and manual corrections</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </li>
+</ol>
+<p class="prose">Keep each page open in its own browser tab, or open them one at a time. Your work in each page is kept in the browser, so closing a tab does not lose paid work.</p>
+
+<h2 id="key">Get a key for an AI service <span class="j">(API key)</span></h2>
+<p class="prose">The pages read pictures using an AI model from OpenAI (GPT) or Anthropic (Claude). You need an account with at least one of them, and a key for it. The key is a long piece of text that lets the page use your account. The company bills your account for each picture read.</p>
+<ul class="prose">
+  <li><strong>OpenAI:</strong> create a key at <a href="https://platform.openai.com/api-keys">platform.openai.com/api-keys</a>.</li>
+  <li><strong>Anthropic:</strong> create a key in the <a href="https://console.anthropic.com/settings/keys">Anthropic Console</a>.</li>
+</ul>
+<div class="callout warn prose">
+  <strong class="t">Treat the key like a password</strong>
+  <p>Anyone who has it can spend your money. The page sends it only to the company that issued it. Tick <em>Remember on this computer</em> only on a computer that is yours. Set a monthly spending limit in your account.</p>
+</div>
+<p class="prose">You choose the model on each page. Model names starting with <span class="f">claude</span> go to Anthropic, and all others go to OpenAI. <em>Custom…</em> lets you type any other model name your key can use. It has to be able to read images. The page records which model actually answered for every reading.</p>
+
+<h2 id="common">Things every page has</h2>
+<dl class="gloss">
+  <dt>Simplified mode</dt><dd>Hides the advanced options so you see only the essentials. Nothing is deleted and your settings are kept. Switch it off to get them all back.</dd>
+  <dt>The <em>?</em> bubbles</dt><dd>Click or hover over one for a plain explanation of that setting.</dd>
+  <dt>Labels to read</dt><dd>All of them, or only the first N, or a random N. You can count single labels or whole specimens. A random sample takes a <em>seed</em> number, so you can pick the same sample again. <strong>Always try 10 first.</strong></dd>
+  <dt>Requests at once</dt><dd>How many pictures are sent at the same time <span class="j">(parallel requests)</span>. It only changes the speed. Lower it if you see rate-limit errors.</dd>
+  <dt>Use the Batch API</dt><dd>OpenAI models only. Sends the labels as one job at half the price, with results within 24 hours. You can close the page and come back.</dd>
+  <dt>Stop</dt><dd>Stops sending and cancels the readings in progress. What has finished is kept.</dd>
+  <dt>Save and Export run info</dt><dd><em>Export run info</em> writes a plain text file with counts, tokens used, every setting and the full instructions sent to the AI. It is meant for a methods section.</dd>
+  <dt>Start over</dt><dd>Asks first. You can clear everything, or only reset the token counts. Download what you still need before you clear anything.</dd>
+</dl>
+
+<h2 id="s1">Step 1 · Type up the text <span class="j">(transcription, OCR)</span></h2>
+<p class="prose">Page: <span class="f">1-transcribe-ocr-V.3.0.html</span>. Input: a folder of label pictures. Output: a spreadsheet with the columns <span class="f">Specimen.image</span>, <span class="f">Image.name</span>, <span class="f">Segments</span> and <span class="f">Model</span>.</p>
+<p class="prose">The model is asked for an <strong>exact transcription</strong> <span class="j">(diplomatic transcription)</span>: write what is there, with no correcting or tidying. Words it cannot be sure of are marked <span class="f">[?]</span> and unreadable ones <span class="f">[illegible]</span>.</p>
+
+<ol class="steps">
+  <li>
+    <h3>Model and key</h3>
+    <p>Choose a model and paste your key. For handwriting, set <em>Image detail</em> to <em>high</em> (OpenAI models only).</p>
+  </li>
+  <li>
+    <h3>Images</h3>
+    <p>Drop the folder of label pictures onto the page, or use <em>Choose folder</em> or <em>Choose images</em>. If you used the label finder, this is the <span class="f">04_cropping_result</span> folder.</p>
+    <p>Optionally prepare the pictures first <span class="j">(preprocessing)</span>: <em>Upscale factor</em> enlarges them before sending, which can help with small writing, and <em>Autocontrast</em> makes faded ink stand out. Left alone, pictures are sent unchanged.</p>
+  </li>
+  <li>
+    <h3>Labels to read</h3>
+    <p>Choose all, or a small first or random batch to test. See above.</p>
+  </li>
+  <li>
+    <h3>Write your instructions <span class="j">(the prompt)</span></h3>
+    <p>Click <em>Open editor</em>. The page has a fixed part that always asks for an exact transcription returned in a set format. You add guidance about <em>your</em> labels.</p>
+    <ul>
+      <li><strong>Let AI help write it:</strong> describe your labels (the collection, the kinds of label, languages, handwriting or print, how dates are written) and click <em>Write prompt</em>. Read the suggestion, then <em>Use this prompt</em>. A stronger model costs very little here, because writing the prompt is one short request.</li>
+      <li><strong>Check it:</strong> <em>Check for contradictions</em> asks a model to point out instructions that conflict with each other.</li>
+      <li><strong>Or write it yourself:</strong> edit the text directly, and <em>Save</em> to keep it. You can also load a <span class="f">.txt</span> file or download yours.</li>
+    </ul>
+  </li>
+  <li>
+    <h3>Click Transcribe</h3>
+    <p>Each label appears next to its transcription. The page counts how many are transcribed, how many have <span class="f">[?]</span> or <span class="f">[illegible]</span> in them, how many failed and how many are waiting. A reply that is not in the expected format counts as failed.</p>
+    <p>Use the arrows to browse. <em>Re-transcribe</em> sends again all of them, the ones you selected, the uncertain ones, or the failed ones. That is a new paid request each time.</p>
+  </li>
+  <li>
+    <h3>Save</h3>
+    <p><em>Save CSV</em> gives you the spreadsheet for step 2. You can also save the raw replies from the AI, as a zip, and the run info.</p>
+  </li>
+</ol>
+
+<h2 id="s2">Step 2 · Sort the text into columns <span class="j">(data structuring)</span></h2>
+<p class="prose">Page: <span class="f">2-data-structuring-V.3.0.html</span>. Input: the spreadsheet from step 1. Output: a spreadsheet with one column per fact you chose, plus a <span class="f">Tags</span> column listing which facts each label contained.</p>
+
+<ol class="steps">
+  <li>
+    <h3>Model and key, and the spreadsheet</h3>
+    <p>Same model, key, requests-at-once and batch options as step 1. Drop the step 1 spreadsheet onto <em>OCR results</em>, and choose how many labels to do. Try 10 first.</p>
+  </li>
+  <li>
+    <h3>Pick the fields <span class="j">(Darwin Core fields)</span></h3>
+    <p>Choose what you want extracted, such as <span class="f">eventDate</span>, <span class="f">verbatimEventDate</span>, <span class="f">locality</span> or <span class="f">recordedBy</span>, and click <em>Add</em>. These are the standard column names for biodiversity data.</p>
+  </li>
+  <li>
+    <h3>Write the instructions</h3>
+    <p>Click <em>Open editor</em>.</p>
+    <ul>
+      <li><strong>Write with AI:</strong> describe your labels if you like, add a note for any field, and click <em>Write prompt from fields</em>.</li>
+      <li><strong>Change with an instruction:</strong> type what you want changed in plain words, then click <em>Suggest changes</em>.</li>
+      <li><strong>Check for contradictions</strong> before you run.</li>
+    </ul>
+    <p>If you change the fields later, the page warns you that the instructions may need updating.</p>
+  </li>
+  <li>
+    <h3>Click Run Structuring</h3>
+    <p>You see each label's text next to the fields that were filled in. Use <em>Prev</em> and <em>Next</em> to browse.</p>
+  </li>
+  <li>
+    <h3>Save</h3>
+    <p><em>Save CSV</em> gives you one row per label, ready for step 3. <em>Export run info</em> records the settings.</p>
+  </li>
+</ol>
+
+<h2 id="s3">Step 3 · Check the work <span class="j">(manual checks and re-reads)</span></h2>
+<p class="prose">Page: <span class="f">3-manual-checks-reruns-V.4.0.html</span>. Input: the spreadsheet from step 2 and the folder of label pictures. Optionally, the photos of the whole specimens. Output: a corrected spreadsheet and the evidence for how reliable the readings were.</p>
+<div class="callout prose">
+  <strong class="t">Why check?</strong>
+  <p>An AI model can read a label wrongly with complete confidence. This step lets you find out how often, for your collection, and fix the mistakes.</p>
+</div>
+
+<ol class="steps">
+  <li>
+    <h3>Load the spreadsheet and tell the page what each column is</h3>
+    <p>Drop in the step 2 spreadsheet <span class="j">(the parse-1 CSV)</span>. Then say which column holds the label picture name, the specimen, the tags and the transcription. A picture name is normally <span class="f">Image.name</span>.</p>
+  </li>
+  <li>
+    <h3>Load the pictures</h3>
+    <p>Drop the folder of label pictures. If you have photos of the whole specimens, drop them too. They are shown next to the label while you check, and are <strong>never sent to the AI</strong>.</p>
+  </li>
+  <li>
+    <h3>Choose the columns to check</h3>
+    <p>The list comes from the <span class="f">Tags</span> column, with how many labels have each. These are the values you will check, and the only ones the AI is asked to read again.</p>
+  </li>
+  <li>
+    <h3>Check by hand <span class="j">(manual checks, "P1")</span></h3>
+    <p>Go through the first reading against the picture. It is built for the keyboard.</p>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Key</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>←</kbd> <kbd>→</kbd></td><td>Previous and next</td></tr>
+        <tr><td><kbd>Space</kbd></td><td>Right</td></tr>
+        <tr><td><kbd>X</kbd></td><td>Wrong</td></tr>
+        <tr><td><kbd>C</kbd></td><td>Unsure</td></tr>
+        <tr><td><kbd>Z</kbd></td><td>Go back</td></tr>
+        <tr><td><kbd>?</kbd></td><td>Show this list of keys</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Filters and a search box help you find a particular label or kind of value.</p>
+  </li>
+  <li>
+    <h3>Get a second opinion <span class="j">(parse 2)</span></h3>
+    <p>Choose a model and key, choose how many labels, and click <em>Run parse 2</em>. The AI reads the picture again, one question per label and column, without seeing the first answer. Each value is then compared with the first reading:</p>
+    <ul>
+      <li><strong>AGREE</strong> or <strong>DISAGREE</strong>. Text must match after trimming spaces.</li>
+      <li>Dates are compared as dates, with a third result, <strong>COMPATIBLE</strong>. The page asks you whether dates on your labels are day first or month first, because <span class="f">03/04</span> means different things.</li>
+    </ul>
+    <p>You can add notes for a column and read the exact final instructions before anything is sent. <em>Check for contradictions</em> works here too.</p>
+  </li>
+  <li>
+    <h3>Test the agreements <span class="j">(parse 3)</span></h3>
+    <p>Click <em>Run parse 3</em>. It reads again only the values where the first two readings agreed, and records whether the agreement held. A value that flips between readings is a warning sign.</p>
+  </li>
+  <li>
+    <h3>Say which value is right</h3>
+    <p>For each compared value, choose the right reading.</p>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>Key</th><th>Mark</th><th>Use when</th></tr></thead>
+      <tbody>
+        <tr><td><kbd>1</kbd></td><td>P1</td><td>The first reading was right</td></tr>
+        <tr><td><kbd>2</kbd></td><td>P2</td><td>The second reading was right</td></tr>
+        <tr><td><kbd>3</kbd></td><td>P3</td><td>The third reading was right</td></tr>
+        <tr><td><kbd>Space</kbd></td><td>Both</td><td>Both readings were right</td></tr>
+        <tr><td><kbd>X</kbd></td><td>Neither</td><td>Both were wrong. You will type the right value.</td></tr>
+        <tr><td><kbd>C</kbd></td><td>Unsure</td><td>You cannot tell from the picture</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p>Click <em>Correct</em> to type the right value for each one you marked <em>Neither</em>. The box starts with the closest reading. Press <kbd>Enter</kbd> to accept and move to the next. Leave it empty if the label has no such value.</p>
+  </li>
+  <li>
+    <h3>Download your results</h3>
+    <div class="tablewrap">
+    <table>
+      <thead><tr><th>File</th><th>What it is</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Corrected CSV</strong></td><td>Your spreadsheet with every checked value set by your marks. This is the one to use. It also has <span class="f">.parse1</span>, <span class="f">.parse2</span> and <span class="f">.source</span> columns so you can see where each value came from.</td></tr>
+        <tr><td>Comparison CSV</td><td>One row per label and column: both readings, the verdict, the third reading, whether it held, your mark and the model.</td></tr>
+        <tr><td>Parse 2 CSV and Parse 3 CSV</td><td>The second and third readings on their own.</td></tr>
+        <tr><td>Manual checks summary</td><td>For each column, how often the first reading was right or wrong. Unsure is counted separately.</td></tr>
+        <tr><td>Raw responses</td><td>Every reply from the AI, with the settings and instructions used.</td></tr>
+        <tr><td>Run info</td><td>Agreement and flip rates per column, token counts, settings and prompts, for a methods section.</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </li>
+</ol>
+<div class="callout prose">
+  <strong class="t">Getting an error rate you can report</strong>
+  <p>Checking every label is rarely practical. Choose a <strong>random sample</strong> of labels in step 3 and check those. The manual checks summary then tells you how often the first reading was right, for that sample.</p>
+</div>
+
+<h2 id="help">If something goes wrong</h2>
+<details>
+  <summary>I get "rate limit" errors</summary>
+  <p>Too many pictures are being sent at once. Lower <em>Requests at once</em>. If it keeps happening, check the limits on your AI account.</p>
+</details>
+<details>
+  <summary>Some labels failed</summary>
+  <p>Use <em>Re-transcribe</em> and choose <em>Failed</em> (step 1), or <em>Retry failed</em> (step 3). A label also counts as failed if the reply was not in the expected format. Check your instructions if many fail.</p>
+</details>
+<details>
+  <summary>I closed the page in the middle of a run</summary>
+  <p>Finished readings are kept in your browser. Open the same file in the same browser and carry on. If you used the half-price batch option, the job keeps running and you can fetch the results later.</p>
+</details>
+<details>
+  <summary>The page does not remember my work</summary>
+  <p>Work is stored in the browser you used. A private window, another browser, or clearing your browsing data starts you from nothing. Save your files as you go.</p>
+</details>
+<details>
+  <summary>The transcription misses faint or small writing</summary>
+  <p>In step 1, try a larger upscale factor or autocontrast, and set <em>Image detail</em> to <em>high</em>. Test on a few labels before you run everything.</p>
+</details>
+<details>
+  <summary>The columns in step 3 look wrong</summary>
+  <p>Check the column roles you assigned. The picture name column has to match the file names in your folder of pictures. Columns to check come from the <span class="f">Tags</span> column, so it needs to be there.</p>
+</details>
+
+<div class="next">
+  <a class="btn" href="label-finder.html">Need to cut labels out first? Label finder</a>
+  <a class="btn ghost" href="index.html">Back to overview</a>
+</div>
+</main>
+</div>
+
+<footer class="site-foot">
+  <p>All code and these pages are in the <a href="https://github.com/montejo-kovacevich-lab/editha">editha repository</a>.</p>
+</footer>
+
+</div>
+</body>
+</html>

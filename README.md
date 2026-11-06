@@ -6,6 +6,10 @@ A no-code pipeline for turning images of text into structured data, using YOLO f
 
 It is aimed at people who can't code. Nothing is uploaded anywhere except directly from your browser to OpenAI or Anthropic.
 
+## Guides
+
+Plain-language guides to what *editha* does and how to run each part are in [`docs/`](docs/index.html): an overview, a [label finder guide](docs/label-finder.html) and a [label reader guide](docs/label-reader.html). They are static web pages, so you can open `docs/index.html` in a browser or publish the `docs` folder with GitHub Pages.
+
 ## Repository layout
 
 | Folder | Step | What it is | Needs |

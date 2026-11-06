@@ -1,4 +1,4 @@
-# Editha
+# editha
 
 A no-code pipeline for transcribing museum specimen labels (and other archival text) into structured biodiversity data, using YOLO for label detection and vision-LLM API calls for transcription. Working name: **Syngraph**.
 
